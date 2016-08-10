@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>onavojs库</title>
+    <script type="text/javascript" src="onavo.js"></script>
+    <style type="text/css">
+        #id{width:100px;height:100px;background:#ff00ff;display:inline-block;}
+    </style>
+</head>
+
+<body>
+    <!-- id -->
+    <h2>
+<div id="id">1.id : $$('id')
+<div id="id2"></div>
+</div>
+<div id="id3"></div>
+</h2>
+    <script type="text/javascript">
+    $$('id')
+    </script>
+    <!-- id -->
+    <hr/>
+    <!-- jsload, cssload -->
+    <h2>2.jsload, cssload: $$T.jsload , $$T.cssload</h2>
+    <script type="text/javascript">
+    $$T.cssload('http://mat1.gtimg.com/www/base/base.css', function() {
+        //console.log('base.css ok')
+    });
+    $$T.jsload('http://mat1.gtimg.com/www/js/newsapp/jsapi/news.js?_tsid=1', function() {
+        //检测系统新闻app/微信/浏览器
+        var CheckSystem = {
+            UA: navigator.userAgent.toLowerCase(),
+            isNewsApp: function() {
+                try {
+                    if (CheckSystem.UA.match(/qqnews/i) == 'qqnews') {
+                        return true;
+                    } else {
+                        return fasle;
+                    }
+                } catch (e) {}
+            },
+            isWeixin: function() {
+                try {
+                    if (CheckSystem.UA.match(/MicroMessenger/i) == 'micromessenger') {
+                        return true;
+                    } else {
+                        return fasle;
+                    }
+                } catch (e) {}
+            },
+            isiPhone: function() {
+                try {
+                    if (CheckSystem.UA.match(/iphone/i) == 'iphone') {
+                        return true;
+                    } else {
+                        return fasle;
+                    }
+                } catch (e) {}
+            }
+        }
+    });
+    </script>
+    <!-- jsload, cssload -->
+    <!-- 判断浏览器 -->
+    <hr/>
+    <h2>3.判断浏览器: $$TB.B , $$TB.IE() , $$TB.weixin()</h2>
+    <script type="text/javascript">
+    $$TB.B
+    var flag = $$TB.IE();
+    if (flag) {
+        //alert("11")
+    } else {
+        //alert('22')
+    }
+    </script>
+    <!-- 判断浏览器 -->
+    <!-- 数组方法 -->
+    <hr/>
+    <h2>4.数组方法: $$A $$A.unique() , $$A.random() , $$A.shuffle(), $$A.contains() , $$A.removeAt(), $$A.remove() , $$A.compact() , $$A.pluck() , $$A.union(), $$A.intersect() , $$A.diff(), $$A.max() , $$A.min()</h2>
+    <script type="text/javascript">
+    var arr = [2, 3, 3, '收到', '阿萨德', 12, '阿萨德', 13, 2, 1, 2, 30];
+    //$$A.unique(arr) //数组去重
+    //$$A.random();  //在数组中随机取一个
+    </script>
+    <!-- 数组方法 -->
+    <!-- 字符串方法 -->
+    <hr/>
+    <h2>5.字符串方法： $$S $$S.camelize() , $$S.byteLen() , $$S.capitalize() , $$S.contains(), $$S.containsClass() , $$S.dasherize() , $$S.endsWith(), $$S.startsWith(), $$S.fillZero, $$S.print() , $$S.repeat(), $$S.stripTags(), $$S.trim(), $$S.truncate()</h2>
+    <script type="text/javascript">
+    var string_xx = "margin-top-padding-niu--hin-top-padding-niu--hi";
+    var string_2xx ="HI";
+    var ddx = {
+        name : 21323,
+        adssa :32213
+    }
+    //获得字符串字节长度
+    $$S.byteLen(string_xx, "utf-8")
+    //驼峰转化
+    $$S.camelize(string_xx)
+    //首字母大写
+    $$S.capitalize(string_xx)
+    //一个字符串是否包含另一个字符串
+    $$S.contains(string_xx, string_2xx)
+
+    //参2是参1的结尾么
+    $$S.endsWith(string_xx, string_2xx,true);
+
+    $$S.fillZero(string_2xx,100);
+
+    $$S.print(string_2xx)
+    $$S.repeat(string_xx,22)
+    $$S.repeat(string_xx,22)
+    $$S.truncate(string_xx)
+    </script>
+    <!-- 字符串方法 -->
+
+    <!-- dom方法 -->
+    <hr/>
+    <h2 id="id4">6.dom方法 : $$D.setStyle(), $$D.curStyle() , $$D.getClientRect(), $$D.getRect(),$$D.compareDocument(),  $$D.getScrollLeft(), $$D.getScrollTop() ，$$D.nextB() ，$$D.nextB() , $$D.nextBs(), $$D.prevBs(), $$D.getType() </h2>
+    <script type="text/javascript">
+     var id = $$('id');
+     var id2 = $$('id2');
+     var id3 = $$('id3');
+     var id4 = $$('id4');
+     $$D.getScrollTop(id);
+     $$D.compareDocument(id,id2)
+     $$D.compareDocument(id2,id3)   
+     $$D.getRect(id)  
+     $$D.curStyle(id).backgroundColor
+     $$D.curStyle(id2).height
+     //$$D.setStyle(id,'height','10px')
+     //$$D.getSize(id).width
+    </script>
+    <!-- dom方法 -->
+    <!-- 原型方法 -->
+    <hr/>
+    <h2>7.原型方法 $$.extend() , $$.deepextend(), $$.extends()</h2>
+    <!-- 原型方法 -->
+
+    <hr/>
+    <h2>8.对象检测 $$.type.getType() ，$$.type.isArray(), $$.type.isBoolen() ,$$.type.isFunction() , $$.type.isNull() , $$.type.isObject() , $$.type.isString() , $$.type.isUndefined()</h2>
+
+    <!-- ajax -->
+    <hr/>
+    <h2>9.Ajax扩展： $$jx 【$$jx.load('file',function(res){},'filetype','type');】</h2>
+
+    <script type="text/javascript">
+        $$jx.load('json.json', function(data) {
+            //console.log(data)
+        }, 'json', 'get');
+        $$jx.load('data.xml', function(xmlDoc) {
+            //console.log(xmlDoc)
+        }, "XML");
+    </script>
+    <!-- ajax -->
+</body>
+
+</html>
