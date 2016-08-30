@@ -1,8 +1,37 @@
 ## onavo.js
 ###JavaScript 工具库
-支持IE6以上，Firefox 3.5.3，Chrome 3.0，Safari 4.0.3，Opera 10.10以上的浏览器
+支持IE6以上，Firefox 3.5.3，Chrome 3.0，Safari 4.0.3，Opera 10.10以上的浏览器  
+git>>: [链接](https://github.com/jiayi2/onavo)  
+单元测试 jasmine>>: [链接](https://github.com/3JTeam/onavojs/tree/test)   
 
 ##change.log
+- --2016年8月26日
+-- 移除**工具** $$TB.cookie对象，新增$$TB.cookie()方法，使用方法如下：  
+```
+$$TB.cookie().set('name', 'value');
+$$TB.cookie().set('name', 'value', { expires: 7 });
+$$TB.cookie().set('name', 'value', { expires: 7, path: '' });
+$$TB.cookie().get()
+$$TB.cookie().get('name')
+$$TB.cookie().remove('name');
+$$TB.cookie().remove('name', { path: '' });
+```
+-- --$$TB.cookie JSON模式  
+```
+$$TB.cookie().set('name', { foo: 'bar' });
+$$TB.cookie().get('name'); => '{"foo":"bar"}'
+$$TB.cookie().getJSON('name'); => { foo: 'bar' }
+$$TB.cookie().getJSON(); => { name: { foo: 'bar' } }
+```
+- --2016年8月21日  
+-- 新增**模块化**(_onavo.js)方法，可以require和import使用了。  
+注意，例如[demo](http://115.29.139.162:10086/onavo/index2.html)  
+
+```
+$$.T.cssload('http://mat1.gtimg.com/www/base/base.css', function() {
+       console.log('base.css ok')
+    });
+```
 - --2016年8月10日  
 -- 新增**工具**浏览器 $$TB.cookie  
 ```
@@ -63,8 +92,8 @@ $$.type.isObject(ele) {Object}
 $$.type.isString(ele) {Object}
 $$.type.isUndefined(ele) {Object}
 ```
--- 移除**DOM**$$D.getType()方法，新增至$$.type.getTyp();
--- 新增**DOM**的12个方法
+-- 移除**DOM**$$D.getType()方法，新增至$$.type.getTyp()  
+-- 新增**DOM**的12个方法  
 ```
 $$D.getScrollTop(node) {DOM} 视窗滚动的scrollTop
 $$D.getScrollLeft(node) {DOM} 视窗滚动的scrollLeft
